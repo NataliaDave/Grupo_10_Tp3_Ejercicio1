@@ -6,13 +6,25 @@
 
 /**
  *
- * @author Usuario
+ * @author Grupo10 TP3 Ejercicio 1
+ * Altamirano Karina
+ * Gianfranco Antonacci Matías
+ * Bequis Marcos Ezequiel
+ * Dave  Natalia
+ * Quiroga Dorzan Alejo
+ * Franzinni Tatiana
  */
+import javax.swing;
+import java.awt;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class Tp3_Ejercicio1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Tp3_Ejercicio1
      */
+
     public Tp3_Ejercicio1() {
         initComponents();
     }
