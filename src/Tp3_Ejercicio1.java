@@ -51,6 +51,8 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        btnOcultar = new javax.swing.JButton();
+        btnVer = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -106,13 +108,13 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jbtnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jbtnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -168,7 +170,7 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,8 +181,27 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnOcultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo_cerrado.png"))); // NOI18N
+        btnOcultar.setText("Ocultar");
+        btnOcultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOcultarActionPerformed(evt);
+            }
+        });
+
+        btnVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo_abierto.png"))); // NOI18N
+        btnVer.setText("Ver");
+        btnVer.setMaximumSize(new java.awt.Dimension(122, 57));
+        btnVer.setMinimumSize(new java.awt.Dimension(122, 57));
+        btnVer.setPreferredSize(new java.awt.Dimension(122, 57));
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,13 +210,23 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jDesktopPane1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(btnOcultar)
+                .addGap(32, 32, 32)
+                .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,19 +238,40 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
 
     //Mati:
     //Evento al presionar el boton REGISTRAR
+    
+    //Ezequiel: Validacion y JOptionPane de usuario y contraseña
+    
     private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
         //Ingresar la info de los txtFields tanto de e-mail y password:
         
-        String user = "alumno@ulp.edu.ar";        //String passUser = "12345678";
+        //Datos correctos para comparar
+        String user = "alumno@ulp.edu.ar";       
+        String passUser = "12345678";
         
-        if(user.equals(jTextField1.getText()) /*&& passUser.equals( (variable textField de password) .getText())*/){ // <-- Completar            
-            jTextField1.setText("");
-            //(variable textField de password).setText(""); <-- Completar
+        //Datos ingresados por el usuario
+        String entrada_user = jTextField1.getText();
+        String entrada_password; /* <-- Completar con  = jPasswordField1.getText()*/  //jPasswordField1 haria referencia a la contraseña
+        
+        //Validacion
+        if(user.equals(entrada_user)){ // <-- Completar con " && passUser.equals(entrada_password) "         
+            JOptionPane.showMessageDialog(this, "¡Bienvenido, " + entrada_user + "!");
         }else{            
-            jTextField1.setText("");
-            //(variable textField de password).setText(""); <-- Completar
-        }
+            JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos");
+        } 
+        
+        //Limpia
+        jTextField1.setText("");
+        //jPasswordField1.setText("");
     }//GEN-LAST:event_jbtnRegistrarActionPerformed
+    
+    //Una vez agregado el jPassword borrar los //
+    private void btnOcultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcultarActionPerformed
+        
+    }//GEN-LAST:event_btnOcultarActionPerformed
+
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        
+    }//GEN-LAST:event_btnVerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +309,8 @@ public class Tp3_Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOcultar;
+    private javax.swing.JButton btnVer;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JColorChooser jColorChooser2;
     private javax.swing.JDesktopPane jDesktopPane1;
